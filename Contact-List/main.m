@@ -26,16 +26,20 @@ int main(int argc, const char * argv[]) {
             
             // if they typed in new, create a new contact
             if([userInput compare: @"new"] == NSOrderedSame) {
+                //create new contact with name and email
                 Contact *newContact = [[Contact alloc] init];
                 newContact.name = [mainCollector inputForPrompt:@"Enter the contact name:"];
                 newContact.email = [mainCollector inputForPrompt:@"Enter the contact email address:"];
-                [fullList addContact:newContact];
+                [fullList addContact: newContact];
             }
-            
-            // if they typed in quit, exit the game
-            if([userInput compare: @"quit"] == NSOrderedSame) {
+            else if ([userInput compare: @"list"] == NSOrderedSame) {
+                //list all current contacts
+                [fullList list];
+            }
+            else if([userInput compare: @"quit"] == NSOrderedSame) {
                 stayOn = NO;
                 NSLog(@"Byeeeeeeee");
+        
             }
             
         }
