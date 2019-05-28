@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		624A9F40229DD103007A5B5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 624A9F3F229DD103007A5B5D /* main.m */; };
+		624A9F48229DD255007A5B5D /* InputCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 624A9F47229DD255007A5B5D /* InputCollector.m */; };
+		624A9F4B229DD486007A5B5D /* InputHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 624A9F49229DD486007A5B5D /* InputHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,10 @@
 /* Begin PBXFileReference section */
 		624A9F3C229DD103007A5B5D /* Contact-List */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Contact-List"; sourceTree = BUILT_PRODUCTS_DIR; };
 		624A9F3F229DD103007A5B5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		624A9F46229DD255007A5B5D /* InputCollector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputCollector.h; sourceTree = "<group>"; };
+		624A9F47229DD255007A5B5D /* InputCollector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputCollector.m; sourceTree = "<group>"; };
+		624A9F49229DD486007A5B5D /* InputHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputHandler.m; sourceTree = "<group>"; };
+		624A9F4A229DD486007A5B5D /* InputHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputHandler.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				624A9F3F229DD103007A5B5D /* main.m */,
+				624A9F46229DD255007A5B5D /* InputCollector.h */,
+				624A9F47229DD255007A5B5D /* InputCollector.m */,
+				624A9F4A229DD486007A5B5D /* InputHandler.h */,
+				624A9F49229DD486007A5B5D /* InputHandler.m */,
 			);
 			path = "Contact-List";
 			sourceTree = "<group>";
@@ -118,6 +128,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				624A9F48229DD255007A5B5D /* InputCollector.m in Sources */,
+				624A9F4B229DD486007A5B5D /* InputHandler.m in Sources */,
 				624A9F40229DD103007A5B5D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
