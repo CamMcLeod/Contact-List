@@ -8,24 +8,34 @@
 
 #import <Foundation/Foundation.h>
 #import "InputCollector.h"
+#import "Contact.h"
+#import "ContactList.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        
         BOOL stayOn = YES;
+        ContactList *fullList = [[ContactList alloc] init];
         
         while(stayOn) {
             // initialize input collector
-            NSLog(@"What would you like do next? \nnew - Create a new contact \nlist - List all contacts \nquit - Exit Application > _");
+            InputCollector *mainCollector = [[InputCollector alloc] init];
             
+            // show main menu, application options, and record input
+            NSString *userInput = [mainCollector inputForPrompt:@"What would you like do next? \nnew - Create a new contact \nlist - List all contacts \nquit - Exit Application > _"];
             
-            
-            InputCollector *newCollector = [[InputCollector alloc] init];
-            
-            NSString *usernameInput = [newCollector inputForPrompt:@"Enter your username"];
+            // if they typed in new, create a new contact
+            if([userInput compare: @"new"] == NSOrderedSame) {
+                Contact *newContact = [[Contact alloc] init];
+                newContact.name = [mainCollector inputForPrompt:@"Enter the contact name:"];
+                newContact.email = [mainCollector inputForPrompt:@"Enter the contact email address:"];
+                [fullList addContact:newContact];
+            }
             
             // if they typed in quit, exit the game
-            if([usernameInput compare: @"quit"] == NSOrderedSame) {
+            if([userInput compare: @"quit"] == NSOrderedSame) {
                 stayOn = NO;
+                NSLog(@"Byeeeeeeee");
             }
             
         }

@@ -11,8 +11,10 @@
 
 @implementation InputCollector
 
--(NSString *)inputForPrompt:(NSString *)promptString{
+-(NSString *)inputForPrompt:(NSString *)promptString {
     
+    // display prompt
+    NSLog(@"%@", promptString);
     // return input string handled using InputHandler
     return [InputHandler handle];
 }
