@@ -22,7 +22,23 @@
 
 -(void)addContact:(Contact *)newContact {
     // add contact to list
-    [self.contacts addObject: newContact];
+    //check if contact exists
+    BOOL contactAvailable = YES;
+    for ( int i = 0; i < [self.contacts count]; i++ ) {
+        if ([[self.contacts[i] email] compare: newContact.email ] == NSOrderedSame) {
+            printf("contact already exists and could not be created\n");
+            //create dummy prompt to pause
+            char inputChars[2];
+            // take user dummy input
+            fgets(inputChars, 2, stdin);
+            contactAvailable = NO;
+        }
+    }
+    
+    if(contactAvailable){
+        // add new contact to list
+        [self.contacts addObject: newContact];
+    }
 }
 
 -(void)list {

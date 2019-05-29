@@ -40,6 +40,7 @@ int main(int argc, const char * argv[]) {
                 Contact *newContact = [[Contact alloc] init];
                 newContact.name = [mainCollector inputForPrompt:@"Enter the contact name:"];
                 newContact.email = [mainCollector inputForPrompt:@"Enter the contact email address:"];
+                
                 [fullList addContact: newContact];
             }
             else if ([userInput compare: @"list"] == NSOrderedSame) {
