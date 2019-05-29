@@ -19,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)list;
 
+-(void) show: (NSString *) index;
+
+-(void) find: (NSString *) term;
+
 @end
 
 NS_ASSUME_NONNULL_END
