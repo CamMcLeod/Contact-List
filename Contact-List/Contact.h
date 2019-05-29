@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property NSString *name;
 @property NSString *email;
-
+@property NSMutableDictionary *phone;
 
 @end
 

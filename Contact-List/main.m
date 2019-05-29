@@ -38,8 +38,9 @@ int main(int argc, const char * argv[]) {
             if([userInput compare: @"new"] == NSOrderedSame) {
                 //create new contact with name and email
                 Contact *newContact = [[Contact alloc] init];
-                newContact.name = [mainCollector inputForPrompt:@"Enter the contact name:"];
-                newContact.email = [mainCollector inputForPrompt:@"Enter the contact email address:"];
+                newContact.name = [mainCollector inputForPrompt:@"Enter the contacts name:"];
+                newContact.email = [mainCollector inputForPrompt:@"Enter the contacts email address:"];
+                newContact.phone = [mainCollector inputForPhone:@"Enter the contacts phone number then a space, then the label for that number (home, cell, etc...). For additional phone numbers follow with a space then the number and label:"];
                 
                 [fullList addContact: newContact];
             }

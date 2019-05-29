@@ -71,9 +71,17 @@
         if(indexGiven < [self.contacts count]) {
             // extract names and emails to char to print on printf
             const char *charName = {[[self.contacts[indexGiven] name] UTF8String]};
-            printf("%i: name - <%s> ()\n", indexGiven , charName);
+            printf("%i: name - %s\n", indexGiven , charName);
             const char *charEmail = {[[self.contacts[indexGiven] email] UTF8String]};
-            printf("%i: email - <%s> ()\n", indexGiven , charEmail);
+            printf("%i: email - %s\n", indexGiven , charEmail);
+            // print all phone numbers in contact
+            NSDictionary *phoneDict = [self.contacts[indexGiven] phone];
+            
+            for (NSString *key1 in phoneDict) {
+                const char *charLabel = {[key1 UTF8String]};
+                const char *charNumber = {[[phoneDict objectForKey:key1] UTF8String]};
+                printf("%i: %s: %s\n", indexGiven , charLabel, charNumber);
+            }
             
             //create dummy prompt to pause
             char inputChars[2];
@@ -103,10 +111,11 @@
     // iterate through all contacts to find search term in contacts"
     for ( int i = 0; i < [self.contacts count]; i++ ) {
         // check for term in names and emails
-        if ([[self.contacts[i] name] containsString: term] || [[self.contacts[i] email] containsString: term]) {
+        if ([[self.contacts[i] name] containsString: term] || [[self.contacts[i] email] containsString: term] ) {
             // print out contact information for matching contacts
             const char *charName = {[[self.contacts[i] name] UTF8String]};
             const char *charEmail = {[[self.contacts[i] email] UTF8String]};
+            
             printf("%i: <%s> (%s)\n", i , charName, charEmail);
             
             //create dummy prompt to pause
