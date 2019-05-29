@@ -16,10 +16,11 @@ int main(int argc, const char * argv[]) {
         
         BOOL stayOn = YES;
         ContactList *fullList = [[ContactList alloc] init];
+        InputCollector *mainCollector = [[InputCollector alloc] init];
         
         while(stayOn) {
             // initialize input collector
-            InputCollector *mainCollector = [[InputCollector alloc] init];
+            
             
             // insert fake data
 //
@@ -32,7 +33,7 @@ int main(int argc, const char * argv[]) {
            
             
             // show main menu, application options, and record input
-            NSString *userInput = [mainCollector inputForPrompt:@"What would you like do next? \nnew - Create a new contact \nlist - List all contacts \nshow - show contact with index # \nfind <term> - find contacts associated with search term \nquit - Exit Application > _"];
+            NSString *userInput = [mainCollector inputForPrompt:@"What would you like do next? \nnew - Create a new contact \nlist - List all contacts \nshow - show contact with index # \nfind <term> - find contacts associated with search term \nhistory - shows the last three user inputs \nquit - Exit Application > _"];
             
             // if they typed in new, create a new contact
             if([userInput compare: @"new"] == NSOrderedSame) {
@@ -58,6 +59,10 @@ int main(int argc, const char * argv[]) {
                 NSString *searchTerm = [userInput substringFromIndex: 5];
                 NSLog(@"%@", searchTerm);
                 [fullList find: searchTerm];
+            }
+            else if ([userInput compare: @"history"] == NSOrderedSame) {
+                //returns last three user inputs
+                [mainCollector showHistory];
             }
             else if([userInput compare: @"quit"] == NSOrderedSame) {
                 stayOn = NO;

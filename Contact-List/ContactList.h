@@ -15,9 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property NSMutableArray *contacts;
 
--(void)addContact:(Contact *)newContact;
+-(void) addContact:(Contact *)newContact;
 
--(void)list;
+-(void) list;
 
 -(void) show: (NSString *) index;
 

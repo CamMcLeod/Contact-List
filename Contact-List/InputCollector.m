@@ -11,12 +11,24 @@
 
 @implementation InputCollector
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _history = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 -(NSString *)inputForPrompt:(NSString *)promptString {
     
     // display prompt
     NSLog(@"%@", promptString);
     // return input string handled using InputHandler
-    return [InputHandler handle];
+    NSString *inputString = [InputHandler handle];
+    [self.history addObject:inputString];
+    
+    return inputString;
 }
 
 -(NSMutableDictionary *)inputForPhone:(NSString *)promptString; {
@@ -33,6 +45,8 @@
 
     // trim whitespace and newline characters from NSString
     NSString *trimmedString = [inputString stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    [self.history addObject:trimmedString];
+    
     NSArray *listItems =[trimmedString componentsSeparatedByString:@" "];
     
     NSMutableDictionary *splitDict = [[NSMutableDictionary alloc] init];
@@ -43,5 +57,25 @@
     
     return splitDict;
 }
+
+-(void)showHistory {
+    //show history
+    if ([self.history count] < 3) {
+        for ( int i = 0; i < 2; i++ ) {
+            const char *charHist = {[self.history[i] UTF8String]};
+            printf("%s\n", charHist);
+        }
+    } else {
+        for ( int i = ((int)[self.history count] - 3); i < [self.history count]; i++ ) {
+            const char *charHist = {[self.history[i] UTF8String]};
+            printf("%s\n", charHist);
+        }
+    }
+    //create dummy prompt to pause
+    char inputChars[2];
+    // take user dummy input
+    fgets(inputChars, 2, stdin);
+}
+
 
 @end
